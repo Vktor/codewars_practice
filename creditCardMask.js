@@ -31,7 +31,23 @@ describe("maskify", function(){
 
 // MY SOLUTION /////////////////////////////////////////////////////////////////////////////////////
 
-// return masked string
 function maskify(cc) {
-    cc.lenght
-    }
+  let count = cc.length, mask='';
+  if(count >3){ //taking sure the string have more than 4 characters
+    count = count -4 //taken the numbers of # that I gonna use it
+  }else if(count =>4){ //if don't have it, return the same string
+    return cc;
+  }
+  for(let i=0; i<count; i++){ //doing the exact numbers of # for the string
+    mask = mask + '#';
+  }
+  return mask + cc.substr(mask.length) //the number of # is taken and the last 4 characters of the string are concatenated
+
+}
+
+// A BETTER ONE: 
+/*
+function maskify(cc) {
+  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
+*/
